@@ -100,6 +100,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            text-align: center;
         }
 
         .header {
@@ -170,13 +171,12 @@
         }
 
         .profile-image {
-    /* Existing styles */
-    animation: imageBounce 1.5s ease-in-out;
-}
-@keyframes imageBounce {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
+            animation: imageBounce 1.5s ease-in-out;
+        }
+        @keyframes imageBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
 
         .header h1 {
             font-size: 4rem;
@@ -354,6 +354,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: start;
+            justify-content: center;
+            padding: 0 20px;
         }
 
         .about-text {
@@ -361,11 +363,13 @@
             line-height: 1.9;
             opacity: 0.95;
             padding: 20px;
+            text-align: left;
         }
 
         .achievements {
             display: grid;
             gap: 25px;
+            padding: 20px;
         }
 
         .achievement-item {
@@ -403,6 +407,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 35px;
+            justify-content: center;
         }
 
         .skill-category {
@@ -488,6 +493,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 35px;
+            justify-content: center;
         }
 
         .project-card {
@@ -659,7 +665,7 @@
         /* Light theme */
         body.light-theme {
             background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 25%, #e8eaf6 50%, #e1f5fe 75%, #ede7f6 100%);
-            color: #333;
+            color: #1a1a1a; /* Darker text for contrast */
         }
 
         body.light-theme .header h1,
@@ -671,7 +677,7 @@
         }
 
         body.light-theme .glass {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.9); /* Increased opacity for better contrast */
             border: 1px solid rgba(0, 150, 136, 0.3);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
@@ -681,17 +687,19 @@
         body.light-theme .project-card,
         body.light-theme .achievement-item,
         body.light-theme .experience-item {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.95); /* Slightly higher opacity */
             border-color: rgba(0, 150, 136, 0.4);
+            color: #1a1a1a; /* Ensure text is dark */
         }
 
         body.light-theme .skill-tag {
             background: rgba(0, 150, 136, 0.2);
             border-color: rgba(0, 150, 136, 0.5);
+            color: #1a1a1a; /* Dark text for readability */
         }
 
         body.light-theme .nav-container {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.9);
             border-color: rgba(0, 150, 136, 0.3);
         }
 
@@ -700,10 +708,16 @@
             color: #0288d1;
         }
 
+        body.light-theme .about-text,
+        body.light-theme .experience-item p {
+            color: #1a1a1a; /* Explicitly set for readability */
+        }
+
         @media (max-width: 768px) {
             .header h1 { font-size: 2.8rem; }
             .section-title { font-size: 2.2rem; }
-            .about-content { grid-template-columns: 1fr; gap: 30px; }
+            .about-content { grid-template-columns: 1fr; gap: 30px; padding: 0; }
+            .achievements { padding: 0; }
             .contact-info { flex-direction: column; align-items: center; }
             .nav-container { flex-wrap: wrap; gap: 10px; }
             .projects-grid, .skills-grid { grid-template-columns: 1fr; }
@@ -735,26 +749,26 @@
 
     <div class="container">
         <header class="header">
-    <img class="profile-image" src="Profile.jpeg" alt="Sai Srujan Seelam Profile Picture" loading="lazy">
-    <h1>Sai Srujan Seelam</h1>
-    <p class="subtitle">AI/ML Engineer & Full-Stack Developer | Founder of FitForge</p>
-    <div class="contact-info">
-        <a href="mailto:srujansai666@gmail.com" class="contact-item">
-            <span aria-hidden="true">📧</span> srujansai666@gmail.com
-        </a>
-        <a href="tel:+18042980554" class="contact-item">
-            <span aria-hidden="true">📱</span> +1 (804) 298-0554
-        </a>
-        <a href="https://linkedin.com/in/sai-srujan-seelam-b1aa462a0" class="contact-item" target="_blank" rel="noopener noreferrer">
-            <span aria-hidden="true">💼</span> LinkedIn
-        </a>
-        <div class="contact-item">
-            <span aria-hidden="true">📍</span> Richmond, VA
-        </div>
-    </div>
-</header>
+            <img class="profile-image" src="Profile.jpeg" alt="Sai Srujan Seelam Profile Picture" loading="lazy">
+            <h1>Sai Srujan Seelam</h1>
+            <p class="subtitle">AI/ML Engineer & Full-Stack Developer | Founder of FitForge</p>
+            <div class="contact-info">
+                <a href="mailto:srujansai666@gmail.com" class="contact-item">
+                    <span aria-hidden="true">📧</span> srujansai666@gmail.com
+                </a>
+                <a href="tel:+18042980554" class="contact-item">
+                    <span aria-hidden="true">📱</span> +1 (804) 298-0554
+                </a>
+                <a href="https://linkedin.com/in/sai-srujan-seelam-b1aa462a0" class="contact-item" target="_blank" rel="noopener noreferrer">
+                    <span aria-hidden="true">💼</span> LinkedIn
+                </a>
+                <div class="contact-item">
+                    <span aria-hidden="true">📍</span> Richmond, VA
+                </div>
+            </div>
+        </header>
 
-        <section id="about" class="section glass" style="padding: 50px;">
+        <section id="about" class="section glass">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
@@ -785,7 +799,7 @@
             </div>
         </section>
 
-        <section id="skills" class="section glass" style="padding: 50px;">
+        <section id="skills" class="section glass">
             <h2 class="section-title">Skills & Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
@@ -835,7 +849,7 @@
             </div>
         </section>
 
-        <section id="projects" class="section glass" style="padding: 50px;">
+        <section id="projects" class="section glass">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
@@ -848,7 +862,7 @@
             </div>
         </section>
 
-        <section id="experience" class="section glass" style="padding: 50px;">
+        <section id="experience" class="section glass">
             <h2 class="section-title">Experience</h2>
             <div class="experience-timeline">
                 <div class="experience-item">
@@ -878,7 +892,6 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' });
-                // Update active nav item
                 document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
                 document.querySelector(`.nav-item[onclick="scrollToSection('${sectionId}')"]`).classList.add('active');
             }
@@ -931,18 +944,16 @@
             particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
             particle.style.animationDelay = `${Math.random() * 2}s`;
             particlesContainer.appendChild(particle);
-
             setTimeout(() => particle.remove(), 10000);
         }
 
         function spawnParticles() {
-            for (let i = 0; i < 20; i++) {
-                setTimeout(createParticle, i * 200);
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createParticle, i * 400);
             }
         }
-
         spawnParticles();
-        setInterval(spawnParticles, 10000);
+        setInterval(spawnParticles, 15000);
 
         // Geometric Background Shapes
         const geometricBg = document.getElementById('geometricBg');
@@ -958,18 +969,16 @@
             shape.style.clipPath = Math.random() > 0.5 ? 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' : 'circle(50%)';
             shape.style.animationDuration = `${Math.random() * 20 + 10}s`;
             geometricBg.appendChild(shape);
-
             setTimeout(() => shape.remove(), 20000);
         }
 
         function spawnShapes() {
-            for (let i = 0; i < 10; i++) {
-                setTimeout(createShape, i * 300);
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createShape, i * 600);
             }
         }
-
         spawnShapes();
-        setInterval(spawnShapes, 15000);
+        setInterval(spawnShapes, 20000);
     </script>
 </body>
 </html>
