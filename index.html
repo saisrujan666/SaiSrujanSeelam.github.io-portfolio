@@ -20,6 +20,7 @@
             overflow-x: hidden;
             color: white;
             position: relative;
+            transition: background 0.3s ease;
         }
 
         .bg-particles {
@@ -77,23 +78,19 @@
 
         .glass {
             background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(10px); /* Reduced blur for compatibility */
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 255, 204, 0.2);
             border-radius: 24px;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .glass-accent {
             background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(138, 43, 226, 0.1));
-            backdrop-filter: blur(25px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 255, 204, 0.3);
             border-radius: 20px;
-            box-shadow: 
-                0 12px 40px rgba(0, 255, 204, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 40px rgba(0, 255, 204, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .container {
@@ -136,9 +133,7 @@
             border-radius: 50%;
             margin: 0 auto 40px;
             border: 3px solid rgba(0, 255, 204, 0.5);
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(0, 255, 204, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 204, 0.3);
             transition: all 0.4s ease;
             background: linear-gradient(45deg, rgba(0, 255, 204, 0.2), rgba(138, 43, 226, 0.2));
             position: relative;
@@ -165,9 +160,7 @@
         .profile-image:hover {
             transform: scale(1.08) rotate(5deg);
             border-color: rgba(0, 255, 204, 0.8);
-            box-shadow: 
-                0 25px 80px rgba(0, 0, 0, 0.5),
-                0 0 60px rgba(0, 255, 204, 0.5);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(0, 255, 204, 0.5);
         }
 
         .profile-image {
@@ -261,7 +254,7 @@
             gap: 15px;
             padding: 20px;
             background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(25px);
+            backdrop-filter: blur(10px);
             border-radius: 60px;
             border: 1px solid rgba(0, 255, 204, 0.3);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -611,7 +604,7 @@
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(100px);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
@@ -652,7 +645,7 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
 
@@ -665,7 +658,7 @@
         /* Light theme */
         body.light-theme {
             background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 25%, #e8eaf6 50%, #e1f5fe 75%, #ede7f6 100%);
-            color: #1a1a1a; /* Darker text for contrast */
+            color: #1a1a1a;
         }
 
         body.light-theme .header h1,
@@ -677,7 +670,7 @@
         }
 
         body.light-theme .glass {
-            background: rgba(255, 255, 255, 0.9); /* Increased opacity for better contrast */
+            background: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(0, 150, 136, 0.3);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
@@ -687,15 +680,15 @@
         body.light-theme .project-card,
         body.light-theme .achievement-item,
         body.light-theme .experience-item {
-            background: rgba(255, 255, 255, 0.95); /* Slightly higher opacity */
+            background: rgba(255, 255, 255, 0.95);
             border-color: rgba(0, 150, 136, 0.4);
-            color: #1a1a1a; /* Ensure text is dark */
+            color: #1a1a1a;
         }
 
         body.light-theme .skill-tag {
             background: rgba(0, 150, 136, 0.2);
             border-color: rgba(0, 150, 136, 0.5);
-            color: #1a1a1a; /* Dark text for readability */
+            color: #1a1a1a;
         }
 
         body.light-theme .nav-container {
@@ -710,7 +703,7 @@
 
         body.light-theme .about-text,
         body.light-theme .experience-item p {
-            color: #1a1a1a; /* Explicitly set for readability */
+            color: #1a1a1a;
         }
 
         @media (max-width: 768px) {
@@ -877,14 +870,26 @@
     <script>
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
-        });
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            });
+            themeToggle.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            }, { passive: false });
 
-        // Load saved theme
-        if (localStorage.getItem('theme') === 'light') {
-            document.body.classList.add('light-theme');
+            // Apply saved theme on load
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+            } else {
+                document.body.classList.remove('light-theme');
+            }
         }
 
         // Scroll to Section
